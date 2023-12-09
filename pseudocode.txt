@@ -1,0 +1,20 @@
+We need 9 places to put our piece
+We need 2 players and crosses and circles
+
+
+
+Board:
+Properties token positions: 1-9
+Functions: clear board, print board
+
+Game: 
+Properties:
+Functions: playGame, printResult.
+Prototype: inherits from board
+
+Player:
+Properties: score, symbol
+Function: put token, "increaseScore"
+
+
+Create Board
