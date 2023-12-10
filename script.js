@@ -93,12 +93,25 @@ const game = (function (){
             function playRound(player){
                 let position = ""
                 if(player === "player1"){
-                    position = parseInt(prompt("Player 1, choose a position to put your token (0-8): "));
+                    while(true){
+                        position = parseInt(prompt("Player 1, choose a position to put your token (0-8): "));
+                        
+                        if(currentBoard[position] === "X" || currentBoard[position] === "O"){
+                            continue
+                        }
+                        break;
+                    }
                     player1.putToken(position)
                 }
                 else{
-                    position = parseInt(prompt("Player 2, choose a position to put your token (0-8): "));
-                    player2.putToken(position)
+                    while(true){
+                        position = parseInt(prompt("Player 1, choose a position to put your token (0-8): "));
+                        
+                        if(currentBoard[position] === "X" || currentBoard[position] === "O"){
+                            continue
+                        }
+                        break;
+                    }
                 }
                 board.display()
                 currentBoard = board.show()
