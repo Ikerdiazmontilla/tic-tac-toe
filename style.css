@@ -1,0 +1,135 @@
+:root {
+    --background-color: #c5c3c6;
+    --font-color: #46494b;
+    --header-background-color: #4c5c68;
+    --header-font-color: #b0e4db;
+    --field-background-color: #ededee;
+    --field-background-color-hover: #d8e4e9;
+    --border-color: #555;
+    --blue-border-color: #2a3a46;
+    --button-background-color: #4c5c68;
+    --button-hover-background: #3b4b57;
+    --button-active-background: #2a3a46;
+    --font: 'Varela Round', sans-serif;
+}
+
+*,
+*::after,
+*::before {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+font-family: var(--font);
+color: var(--font-color);
+/* border: 1px solid red; */
+}
+
+
+body{
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--header-background-color);
+}
+
+h1{
+    font-size: 4rem;
+    color: var(--header-font-color);
+}
+
+main{
+    background-color: var(--background-color);
+    color: var(--font-color);
+    display: grid;
+    grid-template-rows: 1fr 8fr 1fr ;
+    gap: 3vh;
+    justify-content: center;
+    padding: 3%;
+}
+
+.turns{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.game-board{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: stretch;
+    min-height: 500px;
+    min-width: 500px;
+    background-color: var(--field-background-color);
+    border: 4px ridge var(--border-color);
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    border: 2px solid var(--border-color);
+}
+
+.box:hover{
+    background-color: var(--field-background-color-hover);
+}
+
+button{
+    background-color: var(--button-background-color);
+    color: var(--header-font-color);
+    border: 2px solid var(--blue-border-color);
+    font-size: 2rem;
+    justify-self: center;
+    min-width: 55%;
+    border-radius: 8px;
+}
+
+button:hover{
+    background-color: var(--button-hover-background);
+}
+
+button:active{
+    background-color: var(--button-active-background);
+}
+
+dialog{
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    margin: auto;
+    
+}
+
+dialog > div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+dialog > div > div{
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    width: 60%;
+    height: 20%;
+}
+.X, .O{
+    min-width:40% ;
+    border-radius: 30px;
+    font-size: 3rem;
+}
+dialog h2{
+    font-size: 3rem;
+    text-align: center;
+}
