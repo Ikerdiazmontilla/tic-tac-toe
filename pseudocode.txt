@@ -1,11 +1,9 @@
 We need 9 places to put our piece
 We need 2 players and crosses and circles
 
-
-
-Board:
-Properties token positions: 1-9
-Functions: clear board, print board
+Gameboard:
+Properties: Board with token positions: 1-9
+Functions: clear board, return board
 
 Game: 
 Properties:
@@ -13,8 +11,15 @@ Functions: playGame, printResult.
 Prototype: inherits from board
 
 Player:
-Properties: score, symbol
-Function: put token, "increaseScore"
+Properties: symbol
+Function: putToken
 
 
-Create Board
+Player chooses x or o with a select in a dialog
+Player starts with the symbol selected.
+When player presses one square, add event listener and the square runs the function put token with its position(id)
+Also the textcontent of the target changes through the put token position
+And the turn variable changes too along with the textcontent of the turn div
+Each turn it prints in the top whose turn it is.
+When you press restart it runs the function clear board, which also clears the dom grid.foreach(box => box.textcontent= "")
+
