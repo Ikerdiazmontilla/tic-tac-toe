@@ -1,3 +1,25 @@
+const gameBoard = (function(){
+    let board = ["","","","","","","","",""]
+    
+
+    function clear(){
+        board = ["","","","","","","","",""]
+    }
+
+    function get(){
+        return board
+    }
+
+    function add(position, symbol){
+        board.splice(position, 1, symbol)
+    }
+
+    return {clear, get, add}
+})()
+
+
+
+
 const controller = (function(){
     let token = ""
     let lastBoxClicked = 0
@@ -36,6 +58,12 @@ const controller = (function(){
             grid.forEach((box)=> box.removeEventListener("click",putToken))
             return
         }
+        let draw = controller.checkDraw()
+        if (draw === true){
+            div.textContent = "It's a draw"
+            grid.forEach((box)=> box.removeEventListener("click",putToken))
+            return
+        }
 
         if (token === "X"){
             token = "O"
@@ -60,6 +88,7 @@ const controller = (function(){
             box.textContent = ""
             box.addEventListener("click", putToken)
         });
+        gameBoard.clear()
         controller.chooseSymbol()
     }
 
@@ -81,26 +110,19 @@ const controller = (function(){
         .some((possibleCombination) => possibleCombination.every((index)=> currentBoard[index] === token))
     }
 
-    return {chooseSymbol, putToken, addListeners, restartGame, checkWinner}
+    function checkDraw(){
+        const currentBoard = gameBoard.get()
+        for(field of currentBoard){
+            if(field === ""){
+                return false
+            }
+        }
+        return true
+    }
+
+    return {chooseSymbol, putToken, addListeners, restartGame, checkWinner,checkDraw}
 })()
+
 
 controller.chooseSymbol()
 controller.addListeners()
-
-const gameBoard = (function(){
-    let board = ["","","","","","","","",""]
-    
-
-    function clear(){}
-
-    function get(){
-        return board
-    }
-
-    function add(position, symbol){
-        board.splice(position, 1, symbol)
-    }
-
-    return {clear, get, add}
-})()
-
